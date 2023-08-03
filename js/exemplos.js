@@ -27,3 +27,11 @@ console.log("-------------------------")
 for(let nome in nomes){
     console.log(nome)
 }
+
+let prompt = require("prompt-sync")();
+let curso = prompt("qual nome do curso?");
+
+console.log("Curso: " + curso);
+
+let fase = Number(prompt("Informe a fase: "));
+console.log("Fase: " + fase);
