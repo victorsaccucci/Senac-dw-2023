@@ -1,36 +1,61 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <!-- Cabeçalho -->
-        <title>cadastro de fabricantes</title>
-        <script src="./js/cadastroDeFabricantes.js"></script>
 
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+<head>
+    <!-- Cabeçalho -->
+    <title>cadastro de fabricantes</title>
+    <script src="./js/cadastroDeFabricantes.js"></script>
 
-    </head>
-        <body class="bg-gray-100 h-screen flex items-center justify-center">
-            <div class="bg-white p-8 shadow-md rounded-md w-96">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 
-                <form action="/api/fabricantes/cadastrar" method="POST">
+</head>
 
-                    <label for="cidade" class="block text-sm font-medium text-gray-700">Cidade:</label>
-                    <input type="text" id="cidade" name="cidade" class="mt-1 p-2 w-full border rounded-md" required><br><br>
-            
-                    <label for="cep" class="block text-sm font-medium text-gray-700">CEP:</label>
-                    <input type="text" id="cep" name="cep" class="mt-1 p-2 w-full border rounded-md" required><br><br>
-            
-                    <label for="uf" class="block text-sm font-medium text-gray-700">UF:</label>
-                    <input type="text" id="uf" name="uf" class="mt-1 p-2 w-full border rounded-md" required><br><br>
-            
-                    <label for="nome" class="block text-sm font-medium text-gray-700">Nome:</label>
-                    <input type="text" id="nome" name="nome" class="mt-1 p-2 w-full border rounded-md" required><br><br>
-            
-                    <label for="cnpj" class="block text-sm font-medium text-gray-700">CNPJ:</label>
-                    <input type="text" id="cnpj" name="cnpj" class="mt-1 p-2 w-full border rounded-md" required><br><br>
-            
-                    <input type="submit" value="Cadastrar" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">
-                </form>
-                
-         </div>
-    </body>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+    <div class="bg-white p-8 shadow-md rounded-md w-96">
+
+        <form action="/api/fabricantes/cadastrar" method="POST">
+
+            <label for="cidade" class="block text-sm font-medium text-gray-700">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" class="mt-1 p-2 w-full border rounded-md" required><br><br>
+
+            <label for="cep" class="block text-sm font-medium text-gray-700">CEP:</label>
+            <input type="text" id="cep" name="cep" class="mt-1 p-2 w-full border rounded-md" required><br><br>
+
+            <label for="uf" class="block text-sm font-medium text-gray-700">UF:</label>
+            <input type="text" id="uf" name="uf" class="mt-1 p-2 w-full border rounded-md" required><br><br>
+
+            <label for="nome" class="block text-sm font-medium text-gray-700">Nome:</label>
+            <input type="text" id="nome" name="nome" class="mt-1 p-2 w-full border rounded-md" required><br><br>
+
+            <label for="cnpj" class="block text-sm font-medium text-gray-700">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" class="mt-1 p-2 w-full border rounded-md" required><br><br>
+
+            <input type="submit" value="Cadastrar"
+                class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">
+        </form>
+    </div>
+    <main class="principal">
+        <button id="btnPesquisar" type="button" onclick="buscarTodosFabricantes()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Pesquisar Fornecedores</button>
+        <button id="btnLimpar" type="button" onclick="limparTabela()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Limpar Tabela</button>
+        <section class="section__principal">
+            <table class="table-auto w-full">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2">#</th>
+                        <th class="px-4 py-2">Nome</th>
+                        <th class="px-4 py-2">CNPJ</th>
+                        <th class="px-4 py-2">CEP</th>
+                        <th class="px-4 py-2">Cidade</th>
+                        <th class="px-4 py-2">UF</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabela">
+                    <!-- Seus dados da tabela aqui -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+</body>
+
 </html>

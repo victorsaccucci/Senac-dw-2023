@@ -40,8 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Adicione um ouvinte de evento para o campo de CEP perder o foco
     cepInput.addEventListener("blur", buscarCEP);
+
+    consultarTabelaButton.addEventListener("click", consultarTabela);
 });
 
 async function buscarCEP() {
@@ -83,3 +84,45 @@ function mostrarTelaErro() {
     limpar();
     alert('CEP informado não existe');
 }
+
+
+async function buscarTodosFabricantes(){
+    fetch('http://localhost:8080/api/fabricantes/listar')
+    .then(resultado => resultado.json())
+    .then(json => { 
+        preencherTabela(json);
+    });
+}
+
+function limparTabela(){
+    document.getElementById("corpoTabela").innerHTML = "";
+}
+
+
+function preencherTabela(jsonFabricantes){
+    this.limparTabela();
+ 
+    var dadosTabelaProdutos = document.getElementById('corpoTabela');
+
+    for(let i = 0; i < jsonFabricantes.length; i++){
+        let novaLinha = dadosTabelaProdutos.insertRow();
+
+        let id = novaLinha.insertCell();
+        id.innerText = jsonFabricantes[i].id;
+
+        let nome = novaLinha.insertCell();
+        nome.innerText = jsonFabricantes[i].nome;
+
+        let cep = novaLinha.insertCell();
+        cep.innerText = jsonFabricantes[i].cep;
+
+        let cnpj = novaLinha.insertCell();
+        cnpj.innerText = jsonFabricantes[i].cnpj;
+
+        let cidade = novaLinha.insertCell();
+        cidade.innerText = jsonFabricantes[i].cidade;
+
+    }
+}
+
+
