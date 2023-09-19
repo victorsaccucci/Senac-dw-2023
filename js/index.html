@@ -1,37 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Consultar de Endereços</title>
-        <script src="/js/consultaViaCep.js"></script>
+        <!-- Cabeçalho -->
+        <title>Consulta de CEP</title>
 
+        <!-- Importações de scripts JS, bibliotecas externas, arquivos CSS... -->
+        <script src="./js/consultaviacep.js"></script>
     </head>
     <body>
-        <div style="font-size: 18px;
-        color: white;">
+        <h1>Consultar CEP</h1>
+        <!-- Conteúdo -->
+        <div style="font-size: 18px; background-color: aqua;" id="divDadosEndereco">
+            <label>Informe o CEP:</label>    
+            <input type="text" id="txtCep" onblur="buscarCEP()">
+            
+            <br><!-- quebra a linha-->
+            <!-- TODO preencher o resultado da consulta de CEP -->
+            <!-- Um campo no HTML por atributo do JSON resultante -->
+            <label>Bairro:</label>
+            <input type="text" id="txtBairro" disabled>
+    
+            <br>
+            <label>Cidade:</label>
+            <input type="text" id="txtCidade" disabled>
 
-        <h1>Consultar CEP: </h1>
-        
-        <label>Informe o CEP: </label>
-        <br>
-        <input id="txtCep" type="text" onblur="buscarCEP()">
+            <br>
+            <label>UF:</label>
+            <input type="text" id="txtUF" disabled>
 
-        <br>
-        <br>
-        <label>Bairro: </label>
-        <br>
-        <input type="text" id="txtBairro" disabled >
-
-        <br>
-        <br>
-        <label>Cidade: </label>
-        <br>
-        <input type="text" id="txtCidade" disabled >
-
-        <br>
-        <br>
-        <label>Estado: </label>
-        <br>
-        <input type="text" id="txtUF" disabled >
+            <!-- TODO Exercício: preencher os demais campos -->
         </div>
     </body>
 </html>
